@@ -13,10 +13,15 @@ const AdvanceSearch = () => {
     const [collapsed, setCollapsed] = useState(false);
 
     const { register, handleSubmit} = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {
+        console.log(data);
+        if(typeof window !== undefined){
+            window.location.pathname = '/search-result';
+        }
+    };
 
     return (
-        <div class="advance-search">
+        <div class="advance-search pr-md-3">
             <h5 className="mb-4">Where do you want to go</h5>
 
             <Form onSubmit={handleSubmit(onSubmit)}>

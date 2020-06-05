@@ -24,7 +24,7 @@ const Experience = (props) => {
                     </div>
                     
                 {/* }  */}
-                <span className="mx-1">{review[0].count}</span> . superhost
+                <span className="mx-1">{review[0].count}</span> 
                 </div>
         </div>
     
