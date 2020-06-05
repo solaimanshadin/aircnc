@@ -1,0 +1,32 @@
+.advance-search .form-control{
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+}
+.advance-search .form-control:focus{
+    box-shadow: none;
+    border-bottom: 1px solid dimgray;
+}
+.advance-search .shadow{
+    box-shadow: 0 0 10px 2px #f5f5f5 !important;
+}
+.advance-search .card{
+    border: 0;
+}
+.advance-search .card-header{
+    cursor: pointer;
+}
+.advance-search label{
+    margin-bottom:0;
+}
+.persons input{
+    width: 40px;
+    text-align: center;
+    border: 0;
+}
+
+.persons button{
+    font-size: 1.5em;
+    padding: 10px;
+    line-height: 0;
+}

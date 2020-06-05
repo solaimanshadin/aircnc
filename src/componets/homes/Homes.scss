@@ -1,0 +1,22 @@
+button.left-indecator,
+button.right-indecator {
+    border-radius: 50%;
+    width: 30px;
+    background: #fff;
+    box-shadow: 0 0 2px black;
+    border-color: transparent;
+}
+.geRExE{
+    top:-20%;
+}
+
+button.left-indecator:focus,
+button.right-indecator:focus{
+    outline: none;
+}
+button.left-indecator{
+    transform: translateX(20px);
+}
+button.right-indecator {
+    transform: translateX(-20px);
+}
