@@ -2,10 +2,12 @@ import React from 'react';
 import { Row,Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom';
 
 
 const ResultItem = () => {
     return (
+        <Link to="/home/1">
         <Row className="border-bottom mb-4">
             <Col md={5}>
                 <img className="img-fluid rounded" src="https://imgur.com/yHwJMpw.png" alt=""/>
@@ -24,6 +26,7 @@ const ResultItem = () => {
                 
             </Col>
         </Row>
+        </Link>
     );
 };
 

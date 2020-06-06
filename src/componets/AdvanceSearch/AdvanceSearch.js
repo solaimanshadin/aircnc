@@ -5,20 +5,27 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch,faAngleUp,faAngleDown } from '@fortawesome/free-solid-svg-icons'
 
 import './AdvanceSearch.scss'
+import { useHistory } from 'react-router-dom';
 
 const AdvanceSearch = () => {
     const [adult, setAdult] = useState(1);
     const [baby, setBaby] = useState(0);
     const [child, setChild] = useState(0);
     const [collapsed, setCollapsed] = useState(false);
+    let history = useHistory();
+
 
     const { register, handleSubmit} = useForm();
+
+    const redirect = () =>{
+        history.push('/search-result');
+    }
     const onSubmit = data => {
         console.log(data);
-        if(typeof window !== undefined){
-            window.location.pathname = '/search-result';
-        }
+        redirect();
     };
+    
+    
 
     return (
         <div class="advance-search pr-md-3">

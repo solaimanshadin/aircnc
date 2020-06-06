@@ -1,22 +1,26 @@
 import React from 'react';
-import { Navbar,Nav, Button, Container } from 'react-bootstrap';
+import { Navbar,Nav, Button, Container, Form } from 'react-bootstrap';
 import './Header.scss';
 import logo from '../../images/logo.png'
+import { Link } from 'react-router-dom';
 const Header2 = () => {
     return (
         <Navbar bg="white" className="border-bottom" expand="lg">
             <Container>
             <Navbar.Brand href="#home">
-                <img src={logo} alt="AirCNC"/>
+                <Link to="/">
+                    <img src={logo} alt="AirCNC"/>
+                </Link>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
+                <Form className="mx-auto">
+                    <Form.Control type="text" className="btn-rounded"/>
+                </Form>
                 <Nav className="ml-auto align-items-center">
-                    <Nav.Link href="#home">Host your Home</Nav.Link>
-                    <Nav.Link href="#home">Host your Experience</Nav.Link>
-                    <Nav.Link href="#home">Help</Nav.Link>
-                    <Nav.Link href="#home">Login</Nav.Link>
-                    <Nav.Link href="#home"><Button variant="primary" className="btn-rounded">Sign Up</Button></Nav.Link>
+                    <Link className="nav-link" to="/help">Help</Link>
+                    <Link className="nav-link" to="/login">Login</Link>
+                    <Link className="nav-link" to="/signup"><Button variant="primary" className="btn-rounded">Sign Up</Button></Link>
                 </Nav>
                 
             </Navbar.Collapse>

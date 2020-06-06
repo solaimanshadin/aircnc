@@ -1,0 +1,26 @@
+.house-rules .date{
+    width: 60px;
+    background: rgb(235, 232, 232);
+    text-align: center;
+    padding-top: 10px;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+.house-rules .date>*{
+    margin: 0;
+    padding: 0;
+}
+.house-rules .small{
+    font-size: 15px !important;
+}
+.house-rules .rules li{
+    margin-top: 10px;
+}
+.house-rules .rules li img{
+    width: 40px;
+    height: 40px;
+    border: 1px solid #efefef;
+    border-radius: 5px;
+    padding: 10px;
+    margin-right: 20px;
+}

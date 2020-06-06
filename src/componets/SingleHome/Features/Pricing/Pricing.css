@@ -1,0 +1,21 @@
+.pricing input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+.pricing input[type="date"]{
+    border: 0!important;
+    background-color: transparent;
+}
+.pricing input[type="date"]:focus{
+    box-shadow: none !important;
+}
+.pricing .preview li{
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid rgb(212, 212, 212);
+}
+.pricing .preview li.total{
+    border:0;
+}
