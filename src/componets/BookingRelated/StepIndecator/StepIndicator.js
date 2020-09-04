@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
-const StepIndicator = () => {
+const StepIndicator = ({step}) => {
+    useEffect(()=>{
+        window.scrollTo(0,0);
+    },[step]);
     return (
         <ul className="list-inline">
             <li className="list-inline-item h6 mr-4">1. Review House Rule

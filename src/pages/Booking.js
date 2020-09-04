@@ -23,7 +23,7 @@ const Booking = () => {
         <Header2/>
         
         <Container className="my-5">
-            <StepIndicator/>
+            <StepIndicator step={step}/>
             <Row className="my-4">
                 <Col md={7}>
                     {
@@ -34,7 +34,7 @@ const Booking = () => {
                         <MeetHost stepHandler={stepHandler}/>
                         :
                         step === 3 ?
-                        <Payment/>
+                        <Payment stepHandler={stepHandler}/>
                         :
                         <h1>Thank you ... </h1>
 

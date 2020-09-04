@@ -1,29 +1,35 @@
 import React from 'react';
-import { Row, Form } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 
-const Payment = () => {
+const Payment = ({stepHandler}) => {
     return (
         <div className="my-5">
             <h6>Payment Select</h6>
-            <Row className="rounded border p-4">
             <Form>
-            {['checkbox', 'radio'].map((type) => (
-                <div key={`default-${type}`} className="mb-3">
-                <Form.Check 
-                    type={type}
-                    id={`default-${type}`}
-                    label={`default ${type}`}
-                />
-
-                <Form.Check
-                    type={type}
-                    label={` ${type}`}
-                    id={`disabled-default-${type}`}
-                />
+                <div className="rounded border p-4 my-3">
+                    <Form.Check
+                        defaultChecked={true}
+                        name="paymentMethod"
+                        value="creditCard"
+                        type="radio"
+                        id="default-radio"
+                        label="Credit Card"
+                    />
                 </div>
-            ))}
+                <div className="rounded border p-4">
+                <Form.Check
+                        name="paymentMethod"
+                        value="PayPal"
+                        type="radio"
+                        id="default-radio-2"
+                        label="PayPal"
+                    />
+                </div>
+                <div className="text-right my-5">
+                    <Button onClick={() => stepHandler({})}>Continue to Pay</Button>
+                </div>
             </Form>
-            </Row>
+
         </div>
     );
 };

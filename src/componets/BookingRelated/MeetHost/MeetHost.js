@@ -1,9 +1,10 @@
 import React from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Row,Col } from 'react-bootstrap';
 
 const MeetHost = ({stepHandler}) => {
     return (
-        <div className="my-5 meet-host">
+        <Row className="my-5 meet-host">
+            <Col md={9}>
             <h3>Travelling for work?</h3>
             <p>Say hello to our host</p>
             <p>Let Rowdra know a little bit yourself and why you are coming</p>
@@ -15,7 +16,12 @@ const MeetHost = ({stepHandler}) => {
                     <Button onClick={() => stepHandler()}>Continue</Button>
                 </Form>
             </Form>
-        </div>
+            </Col>
+            <Col md={3} className="text-center">
+                <img className="host-img" src="https://imgur.com/Gyu1TXZ.png" alt=""/>
+                <p>Rowdra</p>
+            </Col>
+        </Row>
     );
 };
 

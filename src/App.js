@@ -1,19 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { createContext } from 'react';
 import './App.css';
-import Header from './componets/Header/Header';
 import Home from './pages/Home';
 import { BrowserRouter as Router,Switch, Route } from "react-router-dom";
 import SearchResult from './pages/SearchResult';
 import NotFound from './pages/NotFound';
-import { useEffect } from 'react';
 import HomeDetails from './pages/HomeDetails';
-import Header2 from './componets/Header/Header2';
 import Booking from './pages/Booking';
+import { useState } from 'react';
+
+export const SearchContext = createContext();
 
 function App() {
-  let page = typeof window !== 'undefined' && window.location.pathname;
+  const [searchData, setSearchData] = useState({});
+  console.log(searchData)
   return (
+    <SearchContext.Provider value={{searchData, setSearchData}}>
     <Router>
       <Switch>
           <Route exact path="/">
@@ -35,6 +36,7 @@ function App() {
       </Switch>
 
     </Router>
+    </SearchContext.Provider>
   );
 }
 

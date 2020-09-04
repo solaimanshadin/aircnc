@@ -2,14 +2,17 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import './Home.scss';
+import { Link } from 'react-router-dom';
 
 const Home = (props) => {
-    const {name,image,price,location,review} = props.home;
+    const {name,image,price,location,review,key} = props.home;
     
     return (
         
         <div className="home">
+            <Link to={`/home/${key}`}>
             <img className="img-fluid rounded" src={image}/>
+            </Link>
                 <h6>{location}</h6>
                 <h5>{name}</h5>
                 <p className="text-secondary small">${price} per person</p>

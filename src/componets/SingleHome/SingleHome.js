@@ -6,18 +6,27 @@ import Features from './Features/Features';
 import Pricing from './Features/Pricing/Pricing';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useParams } from 'react-router-dom';
 
 
 const SingleHome = () => {
-
+    const {key} = useParams();
     const [activeItemIndex, setActiveItemIndex] = useState(0);
     const chevronWidth = 40;
 
     const [homeRules, setHomeRules] = useState({});
+    const [home, setHome] = useState({});
+
     useEffect(() => {
         fetch("https://air-cnc-homes-api.herokuapp.com/homeRules")
         .then(res=>res.json())
         .then(data=> setHomeRules(data));
+    }, [homeRules.length]);
+    const url = `https://air-cnc-homes-api.herokuapp.com/homeDetails/${key}`;
+    useEffect(() => {
+        fetch(url)
+        .then(res=>res.json())
+        .then(data=> setHome(data));
     }, [homeRules.length]);
 
     useEffect(()=>{
@@ -36,18 +45,18 @@ const SingleHome = () => {
                     outsideChevron
                     chevronWidth={chevronWidth}
                 >
-                    <img className="w-100 d-block" src="https://imgur.com/IKoNXNE.png" alt=""/>
-                    <img className="w-100" src="https://imgur.com/IKoNXNE.png" alt=""/>
+                    <img className="w-100 d-block" src={home.image} alt=""/>
+                    <img className="w-100 d-block" src={'https://imgur.com/O3JSVr5.png'} alt=""/> 
                 </ItemsCarousel>
 
                 <Container>
                     <Row className="my-5">
                         <Col md={7} className="pr-5">
                             <div className="d-flex justify-content-between">
-                                <h2>Lorem ipsum dolor sit amet.</h2>
+                                <h2>{home.name}</h2>
                                 <div className="text-center">
                                 <img src="https://imgur.com/Gyu1TXZ.png"
-                                style={{width:"70px", height:"70px", borderRadius:"50%", objectFit:"cover"}}
+                                className="host-img"
                                 alt=""/>
                                 <p>Rowdra</p>
                                 </div>

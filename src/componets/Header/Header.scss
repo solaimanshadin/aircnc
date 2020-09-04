@@ -3,3 +3,19 @@
     color: #222 !important;
     padding-left: 1.2em !important;
 }
+
+.header-search{
+    border-radius: .5rem;
+}
+.header-search .form-control{
+    border-radius: 0;
+    border-top:0 !important;
+    border-bottom: 0;
+    border-left:0;
+    font-weight: bold;
+}
+
+.header-search svg{
+   color: #7aef4d;
+  
+}

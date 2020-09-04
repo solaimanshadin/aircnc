@@ -6,14 +6,17 @@ import { faSearch,faAngleUp,faAngleDown } from '@fortawesome/free-solid-svg-icon
 
 import './AdvanceSearch.scss'
 import { useHistory } from 'react-router-dom';
+import { SearchContext } from '../../App';
+import { useContext } from 'react';
 
 const AdvanceSearch = () => {
-    const [adult, setAdult] = useState(1);
-    const [baby, setBaby] = useState(0);
-    const [child, setChild] = useState(0);
+    const {searchData, setSearchData} = useContext(SearchContext)
+
+    const [adult, setAdult] = useState(searchData.adult||1);
+    const [baby, setBaby] = useState(searchData.baby||0);
+    const [child, setChild] = useState(searchData.child||0);
     const [collapsed, setCollapsed] = useState(false);
     let history = useHistory();
-
 
     const { register, handleSubmit} = useForm();
 
@@ -21,7 +24,7 @@ const AdvanceSearch = () => {
         history.push('/search-result');
     }
     const onSubmit = data => {
-        console.log(data);
+        setSearchData(data)
         redirect();
     };
     
@@ -34,19 +37,19 @@ const AdvanceSearch = () => {
             <Form onSubmit={handleSubmit(onSubmit)}>
                 <Form.Group className="rounded shadow p-3">
                     <Form.Label className="font-weight-bold">Location</Form.Label>
-                    <Form.Control ref={register({ required: true })}  name="city" type="text" placeholder="Add city, landmark, area "></Form.Control>
+                    <Form.Control defaultValue={searchData.city && searchData.city} ref={register({ required: true })}  name="city" type="text" placeholder="Add city, landmark, area "></Form.Control>
                 </Form.Group>
                 <Row>
                     <Col className="pr-0">
                         <Form.Group className="rounded shadow p-3 mr-0">
                             <Form.Label className="text-secondary">Arrival</Form.Label>
-                            <Form.Control ref={register({ required: true })}  type="date" name="arrival"></Form.Control>
+                            <Form.Control ref={register({ required: true })}  type="date" defaultValue={searchData.arrival && searchData.arrival} name="arrival"></Form.Control>
                         </Form.Group>
                     </Col>
                     <Col className="pl-1">
                         <Form.Group className="rounded shadow p-3 ">
                             <Form.Label  className="text-secondary">Departure</Form.Label>
-                            <Form.Control ref={register({ required: true })}  type="date" name="departure"></Form.Control>
+                            <Form.Control defaultValue={searchData.departure && searchData.departure} ref={register({ required: true })}  type="date" name="departure"></Form.Control>
                         </Form.Group>
                     </Col>
                 </Row>
@@ -78,7 +81,7 @@ const AdvanceSearch = () => {
                                     <Button 
                                      onClick={() => adult > 0 && setAdult(adult - 1)}
                                      variant="default" size="sm">-</Button>
-                                    <input name="adult" ref={register({ required: true })} value={adult} type="text"/>
+                                    <input name="adult" ref={register({ required: true })} defaultValue={adult} type="text"/>
                                     <Button variant="default" size="sm"
                                     onClick={() =>  setAdult(adult + 1)}
                                     >+</Button>
@@ -94,7 +97,7 @@ const AdvanceSearch = () => {
                                     <Button variant="default" size="sm"
                                     onClick={() => child > 0 && setChild(child - 1)}
                                     >-</Button>
-                                    <input name="child" ref={register({ required: true })} value={child} type="text"/>
+                                    <input name="child" ref={register({ required: true })} defaultValue={child} type="text"/>
                                     <Button variant="default" size="sm"
                                     onClick={() =>  setChild(child + 1)}
                                     >+</Button>
@@ -109,7 +112,7 @@ const AdvanceSearch = () => {
                                     <Button variant="default" size="sm"
                                     onClick={() => baby > 0 && setBaby(baby - 1)}
                                     >-</Button>
-                                    <input name="baby" ref={register({ required: true })} value={baby} type="text"/>
+                                    <input name="baby" ref={register({ required: true })} defaultValue={baby} type="text"/>
                                     <Button variant="default" size="sm"
                                     onClick={() =>  setBaby(baby + 1)}
                                     >+</Button>
