@@ -11,7 +11,7 @@
     "@testing-library/user-event": "^7.2.1",
     "bootstrap": "^4.5.0",
     "mapbox-gl": "^1.10.1",
-    "node-sass": "^4.14.1",
+    "node-sass": "^9.0.0",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
     "react-content-loader": "^5.0.4",
@@ -19,7 +19,7 @@
     "react-hook-form": "^5.7.2",
     "react-items-carousel": "^2.8.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1"
+    "react-scripts": "5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
